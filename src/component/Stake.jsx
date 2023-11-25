@@ -58,22 +58,24 @@ const Stake = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 bg-gray-900 rounded-xl text-white">
-      <h1 className="text-3xl text-center text-blue-500 font-bold mb-4">
+    <div className="container p-4 justify-center items-center rounded-xl text-white">
+      <h1 className="text-3xl text-center text-yellow-400 font-bold mb-4">
         Stake Your Token
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="flex flex-col justify-center items-center md:flex-row md:space-x-4 w-full">
         {/* Stake and Unstake Token Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+        <div className="flex-1 flex flex-col md:flex-row md:space-x-4 w-full">
           {/* Stake Token Section */}
-          <div className="border w-full md:w-auto p-4 flex flex-col rounded-md bg-gray-800">
+          <div className="flex-1 border p-4 flex flex-col rounded-md bg-gradient-to-r from-purple-800 to-blue-800">
             <div>
-              <h3 className="text-green-500 text-xl mb-2">Stake Token:</h3>
+              <h3 className="text-green-500 text-2xl mb-4 font-semibold">
+                Stake Token:
+              </h3>
               {loadingStakeInfo || loadingStakeTokenBalance ? (
                 <p className="text-white">Loading...</p>
               ) : (
-                <p className="text-white">
+                <p className="text-white text-lg">
                   {ethers.utils.formatEther(stakeInfo[0])}{" "}
                   {stakeTokenBalance?.symbol}
                 </p>
@@ -86,7 +88,7 @@ const Stake = () => {
                 max={stakeTokenBalance?.displayValue}
                 value={stakeAmount}
                 onChange={(e) => setStakeAmount(e.target.value)}
-                className="border p-2 rounded-md bg-gray-700 text-white"
+                className="border p-3 rounded-md bg-gray-700 text-white"
               />
               <button
                 onClick={async () => {
@@ -99,22 +101,24 @@ const Stake = () => {
                   ]);
                   resetValue();
                 }}
-                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                className="bg-blue-500 text-white px-5 py-3 rounded-md hover:bg-blue-600 transition duration-300"
               >
-                Stake
+                Stake Now
               </button>
             </div>
           </div>
 
           {/* Unstake token section */}
-          <div className="mt-4 w-full md:w-auto space-y-2 border rounded-lg p-4 bg-gray-800">
-            <h3 className="text-red-500 text-xl mb-2">Unstake Token:</h3>
+          <div className="flex-1 mt-4 md:mt-0 flex flex-col space-y-2 border rounded-lg p-4 bg-gradient-to-r from-red-800 to-pink-800">
+            <h3 className="text-red-500 text-2xl mb-4 font-semibold">
+              Unstake Token:
+            </h3>
             <div>
               <input
                 type="number"
                 value={unstakeAmount}
                 onChange={(e) => setUnstakeAmount(e.target.value)}
-                className="border p-2 rounded-md bg-gray-700 text-white"
+                className="border p-3 rounded-md bg-gray-700 text-white"
               />
               <button
                 onClick={async () => {
@@ -123,21 +127,23 @@ const Stake = () => {
                   ]);
                   resetValue();
                 }}
-                className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                className="bg-red-500 text-white px-5 py-3 rounded-md hover:bg-red-600 transition duration-300"
               >
-                Unstake
+                Unstake Now
               </button>
             </div>
           </div>
         </div>
 
         {/* Reward Token Section */}
-        <div className="border p-4 rounded-md bg-gray-800 col-span-2">
-          <h3 className="text-yellow-500">Reward Token:</h3>
+        <div className="flex-1 border p-4 rounded-md bg-gradient-to-r from-yellow-900 to-purple-800 mt-4 md:mt-0">
+          <h3 className="text-yellow-500 text-2xl mb-4 font-semibold">
+            Reward Token:
+          </h3>
           {loadingStakeInfo || loadingRewardTokenBalance ? (
-            <p>Loading...</p>
+            <p className="text-white">Loading...</p>
           ) : (
-            <p>
+            <p className="text-white text-lg">
               {ethers.utils.formatEther(stakeInfo[1])}{" "}
               {rewardTokenBalance?.symbol}
             </p>
@@ -148,28 +154,27 @@ const Stake = () => {
               type="number"
               value={depositAmount}
               onChange={(e) => setDepositAmount(e.target.value)}
-              className="border p-2 rounded-md bg-gray-700 text-white"
+              className="border p-3 rounded-md bg-gray-700 text-white"
             />
             <Web3Button
               contractAddress="0x6A49c2701626e749743483cA8599c46D7069834D"
               action={(contract) => {
                 contract.call("depositRewardTokens", [depositAmount]);
               }}
-              className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+              className="bg-green-500  text-white px-5 py-3 rounded-md hover:bg-green-600 transition duration-300"
             >
               Deposit Reward Tokens
             </Web3Button>
+            <button
+              onClick={async () => {
+                await stakeContract.call("claimRewards");
+                resetValue();
+              }}
+              className="m-4 bg-purple-500 text-white px-5 py-3 rounded-md hover:bg-purple-600 transition duration-300"
+            >
+              Claim Now
+            </button>
           </div>
-
-          <button
-            onClick={async () => {
-              await stakeContract.call("claimRewards");
-              resetValue();
-            }}
-            className="mt-4 bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-600"
-          >
-            Claim
-          </button>
         </div>
       </div>
     </div>
