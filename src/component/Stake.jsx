@@ -110,7 +110,7 @@ const Stake = () => {
 
           {/* Unstake token section */}
           <div className="flex-1 mt-4 md:mt-0 flex flex-col space-y-2 border rounded-lg p-4 bg-gradient-to-r from-red-800 to-pink-800">
-            <h3 className="text-red-500 text-2xl mb-4 font-semibold">
+            <h3 className="text-rose-500 text-2xl mb-4 font-semibold">
               Unstake Token:
             </h3>
             <div>
@@ -127,7 +127,7 @@ const Stake = () => {
                   ]);
                   resetValue();
                 }}
-                className="bg-red-500 text-white px-5 py-3 rounded-md hover:bg-red-600 transition duration-300"
+                className="bg-red-500 text-white px-5 py-3 rounded-md mt-4 hover:bg-red-600 transition duration-300"
               >
                 Unstake Now
               </button>
@@ -154,14 +154,14 @@ const Stake = () => {
               type="number"
               value={depositAmount}
               onChange={(e) => setDepositAmount(e.target.value)}
-              className="border p-3 rounded-md bg-gray-700 text-white"
+              className="border p-3  rounded-md bg-gray-700 text-white"
             />
             <Web3Button
               contractAddress="0x6A49c2701626e749743483cA8599c46D7069834D"
               action={(contract) => {
                 contract.call("depositRewardTokens", [depositAmount]);
               }}
-              className="bg-green-500  text-white px-5 py-3 rounded-md hover:bg-green-600 transition duration-300"
+              className="bg-green-500 ml-4 text-white px-5 py-3 rounded-md hover:bg-green-600 transition duration-300"
             >
               Deposit Reward Tokens
             </Web3Button>
@@ -172,7 +172,7 @@ const Stake = () => {
               }}
               className="m-4 bg-purple-500 text-white px-5 py-3 rounded-md hover:bg-purple-600 transition duration-300"
             >
-              Claim Now
+              Claim All Rewards
             </button>
           </div>
         </div>

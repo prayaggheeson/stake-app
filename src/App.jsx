@@ -20,11 +20,12 @@ function App() {
   );
   const { data: stakeTokenBalance, isLoading: isLoadingStakeTokenBalance } =
     useTokenBalance(stakeTokenContract, address);
+    
 
   return (
-    <div className="bg-gradient-to-r from-purple-400 to-blue-500 min-h-screen p-4">
+    <div className="bg-gradient-to-tr from-indigo-100 via-purple-50 to-teal-100 min-h-screen p-4">
       <div className="flex flex-col items-center md:items-start md:flex-row justify-between mb-4">
-        <h1 className="text-4xl text-white text-center mb-4 md:mb-0 font-bold">
+        <h1 className="text-4xl text-black text-center mb-4 md:mb-0 font-bold">
           DeFi <span className="text-yellow-400">Staking App</span>
         </h1>
         <div className="md:right-0">
