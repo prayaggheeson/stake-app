@@ -1,10 +1,10 @@
 import React from "react";
 import { Web3Button } from "@thirdweb-dev/react";
-import { REWARD_TOKEN_ADDRESSES } from "./Constants";
+import { ACCOUNT2_ADDRESSES, REWARD_TOKEN_ADDRESSES } from "./Constants";
 
 const Transfer = () => {
   const from = "0x94C1Da4F14178AB9c2eB2f8C8351b0B6f383CF72";
-  const to = "0x8441e0d9626a92cc0Fc8fb5b9edB0e605806DEeC";
+  const to = ACCOUNT2_ADDRESSES;
   const amount = "100000000000000000000";
 
   return (
