@@ -100,6 +100,7 @@ const Stake = () => {
                     ethers.utils.parseEther(stakeAmount),
                   ]);
                   resetValue();
+                  alert("Stake success");
                 }}
                 className="bg-blue-500 text-white px-5 py-3 rounded-md hover:bg-blue-600 transition duration-300"
               >
@@ -126,6 +127,7 @@ const Stake = () => {
                     ethers.utils.parseEther(unstakeAmount),
                   ]);
                   resetValue();
+                  alert("Unstake success");
                 }}
                 className="bg-red-500 text-white px-5 py-3 rounded-md mt-4 hover:bg-red-600 transition duration-300"
               >
@@ -161,6 +163,10 @@ const Stake = () => {
               action={(contract) => {
                 contract.call("depositRewardTokens", [depositAmount]);
               }}
+              onSuccess={() => {
+                resetValue();
+                alert("Deposit success");
+              }}
               className="bg-green-500 ml-4 text-white px-5 py-3 rounded-md hover:bg-green-600 transition duration-300"
             >
               Deposit Reward Tokens
@@ -169,6 +175,7 @@ const Stake = () => {
               onClick={async () => {
                 await stakeContract.call("claimRewards");
                 resetValue();
+                alert("claimed rewards");
               }}
               className="m-4 bg-purple-500 text-white px-5 py-3 rounded-md hover:bg-purple-600 transition duration-300"
             >
