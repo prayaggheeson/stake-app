@@ -3,6 +3,7 @@ import {
   useContract,
   useTokenBalance,
   useAddress,
+  
 } from "@thirdweb-dev/react";
 import Stake from "./component/Stake";
 import Transfer from "./component/Transfer";
