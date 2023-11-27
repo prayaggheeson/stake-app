@@ -5,6 +5,8 @@ import {
   useAddress,
 } from "@thirdweb-dev/react";
 import Stake from "./component/Stake";
+import Transfer from "./component/Transfer";
+import Airdrop from "./component/AirDrop";
 
 function App() {
   const address = useAddress();
@@ -20,7 +22,6 @@ function App() {
   );
   const { data: stakeTokenBalance, isLoading: isLoadingStakeTokenBalance } =
     useTokenBalance(stakeTokenContract, address);
-    
 
   return (
     <div className="bg-gradient-to-tr from-indigo-100 via-purple-50 to-teal-100 min-h-screen p-4">
@@ -63,13 +64,19 @@ function App() {
         </div>
       </div>
 
-      <div className="bg-gray-800 p-8 rounded-md">
+      <div className="bg-gray-800 p-8 rounded-md mb-4">
         <h2 className="text-2xl text-center mb-4 text-white font-semibold">
           Stake your {stakeTokenBalance?.name} and get rewarded with{" "}
           {rewardtokenBalance?.name}
         </h2>
         <Stake />
       </div>
+
+      <div className="flex flex-row items-center gap-8">
+  <Transfer />
+  <Airdrop />
+</div>
+
     </div>
   );
 }
