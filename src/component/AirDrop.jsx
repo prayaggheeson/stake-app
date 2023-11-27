@@ -1,5 +1,4 @@
-import React from "react";
-import { useTransferBatchToken, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useTransferBatchToken, useContract, Web3Button, useAddress } from "@thirdweb-dev/react";
 import { ACCOUNT2_ADDRESSES, ACCOUNT3_ADDRESSES, REWARD_TOKEN_ADDRESSES } from "./Constants";
 
 // Your smart contract address
@@ -8,11 +7,11 @@ const contractAddress = REWARD_TOKEN_ADDRESSES;
 function AirDrop() {
   const { contract } = useContract(contractAddress, "token");
   const { mutateAsync: transferBatchToken } = useTransferBatchToken(contract);
-
+const ownerAddress = useAddress()
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-orange-500 p-8 rounded-xl text-white">
       <h1 className="text-3xl text-center font-bold mb-6">
-        AIR DROP TO MULTIPLE ACCOUNTS
+        AIR DROP TO MULTIPLE ACCOUNTS from Owners Wallet:- <span className="text-blue-500 text-base">{ownerAddress}</span>
       </h1>
 
       <Web3Button
