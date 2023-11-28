@@ -3,11 +3,12 @@ import {
   useContract,
   useTokenBalance,
   useAddress,
-  
 } from "@thirdweb-dev/react";
 import Stake from "./component/Stake";
 import Transfer from "./component/Transfer";
 import Airdrop from "./component/AirDrop";
+import Mint from "./component/Mint";
+import Burn from "./component/Burn";
 
 function App() {
   const address = useAddress();
@@ -74,10 +75,11 @@ function App() {
       </div>
 
       <div className="flex flex-col md:flex-row items-center gap-8">
-  <Transfer />
-  <Airdrop />
-</div>
-
+        <Transfer />
+        <Airdrop />
+        <Mint />
+        <Burn/>
+      </div>
     </div>
   );
 }
