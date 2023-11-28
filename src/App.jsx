@@ -73,7 +73,7 @@ function App() {
         <Stake />
       </div>
 
-      <div className="flex flex-row items-center gap-8">
+      <div className="flex flex-col md:flex-row items-center gap-8">
   <Transfer />
   <Airdrop />
 </div>
