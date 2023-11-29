@@ -26,6 +26,7 @@ function AirDrop() {
         AIR DROP TO MULTIPLE ACCOUNTS from Owners Wallet:-{" "}
         <span className="text-blue-500 text-base">{ownerAddress}</span>
       </h1>
+      
       <Web3Button
         contractAddress={contractAddress}
         action={() =>
@@ -40,7 +41,7 @@ function AirDrop() {
             },
           ])
         }
-        onSuccess={() => alert("Success! The transfer went through.")}
+        onSuccess={() => alert(`Success! The transfer ${ACCOUNT2_ADDRESSES} & ${ACCOUNT3_ADDRESSES} went through.`)}
         onError={(error) => alert(`Error: ${error}`)}
         className="bg-purple-500 text-white px-5 py-3 rounded-md hover:bg-purple-600 transition duration-300 mt-auto"
       >
