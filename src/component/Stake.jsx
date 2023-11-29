@@ -135,7 +135,7 @@ const Stake = () => {
         {/* Reward Token Section */}
         <div className="flex-1 mt-4 border p-4 rounded-md bg-gradient-to-r from-yellow-900 to-purple-800">
           <h3 className="text-yellow-500 text-2xl mb-4 font-semibold">
-            Reward Token:
+            Reward Token
           </h3>
           {loadingStakeInfo || loadingRewardTokenBalance ? (
             <p>Loading...</p>

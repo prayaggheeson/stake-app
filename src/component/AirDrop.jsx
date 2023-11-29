@@ -23,7 +23,7 @@ function AirDrop() {
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-orange-500 p-8 rounded-xl text-white flex flex-col items-center">
       <h1 className="text-3xl text-center font-bold mb-6">
-        AIR DROP TO MULTIPLE ACCOUNTS from Owners Wallet:-{" "}
+        AIR DROP TO MULTIPLE ACCOUNTS from Owners Wallet{" "}
         <span className="text-blue-500 text-base">{ownerAddress}</span>
       </h1>
       
